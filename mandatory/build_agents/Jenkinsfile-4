@@ -1,0 +1,21 @@
+pipeline {
+  agent {
+    docker { 
+        image 'ubuntu' 
+        args '-u root:sudo'
+    }
+  }
+  stages {
+    stage('Install Docker') {
+      steps {
+        sh '''
+           export DEBIAN_FRONTEND=noninteractive
+           apt update -y
+           apt install curl -y
+           curl https://get.docker.com/ > dockerinstall && chmod 777 dockerinstall && ./dockerinstall
+           docker ps -a
+        '''
+      }
+    }
+  }
+}
