@@ -209,7 +209,7 @@ pipeline {
 
 ## Task 6: Create Pipeline, which will build artifact using Dockerfile directly from your github repo (use Dockerfile from previous task).
 
-## I created pipline script which will build artifact using Dockerfile directly from your github repo (use Dockerfile from previous task).
+### I created pipline script which will build artifact using Dockerfile directly from your github repo (use Dockerfile from previous task).
 
 <pre>
 pipeline {
