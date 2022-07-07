@@ -215,7 +215,7 @@ pipeline {
 pipeline {
   agent { 
     dockerfile true {
-        filename './mandatory/build_agents/Dockerfile'
+        filename './mandatory/Dockerfile'
         args '-u root:sudo'
   }
   stages {
@@ -223,6 +223,7 @@ pipeline {
       steps {
         sh '''
           apache2 -v
+          curl http://localhost:80
         '''
       }
     }
@@ -234,6 +235,26 @@ pipeline {
 
 
 ## Task 7: Pass  variable PASSWORD=QWERTY! To the docker container. Variable must be encrypted!!!
+
+I just add a secret value in jenkins credentials
+
+![alt text](./screenshots/Picture19.png)
+
+And used bash command to show that variable encrypted
+<pre>
+echo PASSWORD = $PASSWORD Mask Passwords
+</pre>
+
+<pre>
+Started by user uvays
+Running as SYSTEM
+Building remotely on java-docker-slave-0000efx4r5yir on docker-cloud1 (java-docker-slave) in workspace /home/jenkins/workspace/secret env
+[secret env] $ /bin/sh -xe /tmp/jenkins9134709384592289965.sh
++ echo PASSWORD = ******** Mask Passwords
+PASSWORD = ******** Mask Passwords
+Finished: SUCCESS
+</pre>
+
 
 
 
