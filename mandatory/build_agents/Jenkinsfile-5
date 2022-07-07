@@ -1,6 +1,6 @@
 pipeline {
   agent { 
-    dockerfile true {
+    dockerfile {
         filename './mandatory/build_agents/Dockerfile'
         args '-u root:sudo'
   }
