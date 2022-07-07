@@ -213,7 +213,11 @@ pipeline {
 
 <pre>
 pipeline {
-  agent { dockerfile true }
+  agent { 
+    dockerfile true {
+        filename './mandatory/build_agents/Dockerfile'
+        args '-u root:sudo'
+  }
   stages {
     stage('Test') {
       steps {
